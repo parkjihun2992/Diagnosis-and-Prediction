@@ -34,9 +34,9 @@ class Model:
         # params['reg_sqrt'] = True
         return params
 
-    def LightGBM_train(self, lgb_db):
+    def LightGBM_train(self, lgb_db, epoch):
         params = self.LightGBM_structure()
-        model = lightgbm.train(params, lgb_db, 1)
+        model = lightgbm.train(params, lgb_db, epoch)
         pickle.dump(model, open(self.model_path, 'wb'))
         return model
 
